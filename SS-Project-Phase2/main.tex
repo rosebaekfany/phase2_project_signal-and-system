@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage[en,bordered]{uni-style}
+\usepackage{uni-math} 
+\usepackage{hyperref}
+\usepackage{graphicx}
+\raggedright
+\title{project phase 1}
+\prof{Dr khalagh}
+\subtitle{400110009  400109265}
+\subject{project}
+\info{
+    \begin{tabular}{lr}
+        Zahra Maleki\\
+        Yahya Tehrani\\
+          \end{tabular}
+    }
+    \date{\today}
+%    \usepackage{xepersian}
+%    \settextfont{Yas}
+    \usepackage{uni-code}
+    
+    \begin{document}
+\maketitlepage
+\maketitlestart
+
+\section{INITIALIZING}
+for start we define some function and initializing some variables and arrays witch we need in future:
+\\
+* notes base: This line creates an array of base frequencies for different musical notes. It uses NumPy's arange function to generate an array of numbers from 0 to 11, which are divided by 12 and raised to the power of 2. These values are then multiplied by 27.5 to obtain the frequencies for each note.
+\\
+* notes duration: This line creates an array representing the duration of each note in milliseconds. It uses NumPy's array function to create an array with specific values, which are then multiplied by 0.7.
+\\
+* notesann: This line creates a list of note names. Each element corresponds to a note in the notesbase array.
+\\
+* sinwave function: This function generates a sinusoidal waveform. It takes three parameters: the frequency of the waveform (f), the number of samples (n), and the sample rate (fs). It first creates a linearly spaced array x from 0 to 2π, representing the time axis. It then creates another linearly spaced array xp from 0 to -1*(n*ring/fs), where ring is set to 30. The function generates a sinusoidal waveform y by taking the sine of the product of x, f, and n/fs, and multiplies it by the exponential of xp. Finally, it creates a 2-dimensional array z with shape (n, 2) and assigns y to both columns of z. The function returns z.
+\\
+* playnote function: This function plays a single note. It takes four parameters: the note ID (noteid), the octave (octave), the duration (dur), and the sample rate (fs). If the noteid is less than 3, it increments the octave by 1. It then calls the sinwave function to generate the waveform y for the specified note and duration. It uses sd.play from the sounddevice library to play the waveform y at the specified sample rate. Finally, it uses sd.wait() to wait until the playback is finished and returns.
+\\
+* putnote function: This function is similar to playnote, but instead of playing the note, it generates and returns the waveform y for the specified note, octave, duration, and sample rate.
+\\
+* getmusic function: This function takes a list of music notes (musicnotes) and the sample rate (fs). It iterates over each item in musicnotes and calls the putnote function to generate the waveform y for each note. The generated waveforms are concatenated using NumPy's concatenate function and returned as a single waveform m.
+\\
+* fs1: This variable stores the sample rate of the audio, set to 44100.
+\\
+* music: This list represents a musical composition. Each item in the list corresponds to a note and contains three elements: the note ID, the octave, and the duration.
+\\
+* y: This line calls the getmusic function with the music list and the sample rate fs1. It generates the waveform y for the musical composition.
+\\
+* sd.play(y, fs1): This line plays the waveform y using the sounddevice library at the sample rate fs1.
+
+
+\section{Q1}
+%\subsection{section 1}
+\raggedright
+%This operation actually enhances the image and passes the image through high-frequency filters, resulting in the high-frequency layers of the image being intensified.
+%\\
+%k=100
+%\\-
+%\\  
+%\includegraphics[width=0.45\linewidth]{q1.jpg}
+%\label{fig:Q1}
+%\includegraphics[width=0.45\linewidth]{q1_rest1.jpg}
+%\label{fig:Q1_REST1}
+%\\  
+%\includegraphics[width=0.45\linewidth]{q1_rest2.jpg}
+%\label{fig:Q1_rest2}
+%\subsection{section 2}
+%\raggedright
+%When we take the Fourier transform in the spatial domain, it causes the filter to operate separately for each location, and this operation increases the intensity of color differences in the image and more details will be visible in the image.  
+%\\
+%k=0.0000001
+%\\ -
+%\\  
+%\includegraphics[width=0.45\linewidth]{q1_rest3.jpg}
+%\label{fig:Q1_rest3}
+%\section{Q2}
+%\raggedright
+%We perform the task using cv2.convertScaleAbs by experimenting with different scenarios so that brighter parts of the image are not lost. We have optimized the process to preserve the brighter parts of the image.
+%\\
+%\includegraphics[width=0.45\linewidth]{pic.jpg}
+%\label{fig:Q2}
+%\includegraphics[width=0.45\linewidth]{output_Q2.jpg}
+%\label{fig:Q2_output}
+%
+%\section{Q3}
+%\raggedright
+%\includegraphics[width=0.45\linewidth]{marilyn.jpg}
+%\label{fig:Q3}
+%\includegraphics[width=0.45\linewidth]{einstein.jpg}
+%\label{fig:Q3_2}
+%\begin{center}
+%\includegraphics[width=0.45\linewidth]{hybrid_Q3.jpg}
+%\label{fig:Q3_out}
+%\end{center}
+
+%\section{Code snippet}
+%% \begin{latin}
+%    \begin{lstlisting}[style={verilog-style},caption={verilog code snippet}]
+%    module Mixing {
+%        ///////// ADC /////////
+%        input              ADC_CS_N,
+%        output             ADC_DIN,
+%        input              ADC_DOUT,
+%        output             ADC_SCLK,
+%
+%        ///////// FOO /////////
+%        output      [2]    FOO,
+%        ///////// HEX /////////
+%        output      [6:0]  HEX0,
+%        output      [6:0]  HEX1,
+%        output      [6:0]  HEX2,
+%        output      [6:0]  HEX3,
+%        output      [6:0]  HEX4,
+%        output      [6:0]  HEX5,
+%    }
+%    \end{lstlisting}
+
+\href{https://github.com/rosebaekfany/signal_system_phase1.git}{github}
+
+\clearpage
+\makeendpage
+\end{document}
